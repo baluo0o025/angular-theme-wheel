@@ -1,0 +1,71 @@
+:host {
+    display: block;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 400px;
+  }
+  
+  h2 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #3f51b5;
+  }
+  
+  p {
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  mat-radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  mat-radio-button {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .button-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  button {
+    padding: 6px 14px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .result {
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    border-radius: 6px;
+  }
+  
+  .correct {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #a5d6a7;
+  }
+  
+  .incorrect {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ef9a9a;
+  }
+  
+  .skipped {
+    background-color: #fff8e1;
+    color: #f9a825;
+    border: 1px solid #ffe082;
+  }
+  

@@ -1,0 +1,24 @@
+<h2>{{ data.themeLabel }}</h2>
+
+<div *ngIf="!data.result">
+  <p>{{ data.question }}</p>
+  <mat-radio-group [(ngModel)]="selectedAnswer">
+    <mat-radio-button *ngFor="let option of data.options" [value]="option">
+      {{ option }}
+    </mat-radio-button>
+  </mat-radio-group>
+
+  <div class="dialog-actions">
+    <button mat-button (click)="onSubmit()" [disabled]="!selectedAnswer">Submit</button>
+    <button mat-button (click)="onCancel()">Cancel</button>
+  </div>
+</div>
+
+<div *ngIf="data.result">
+  <p *ngIf="data.result.correct" class="correct">🎉 Correct! You chose: {{ data.result.selected }}</p>
+  <p *ngIf="!data.result.correct" class="incorrect">❌ Incorrect. You chose: {{ data.result.selected }}</p>
+
+  <div class="dialog-actions">
+    <button mat-button (click)="dialogRef.close(data.result.selected)">Close</button>
+  </div>
+</div>

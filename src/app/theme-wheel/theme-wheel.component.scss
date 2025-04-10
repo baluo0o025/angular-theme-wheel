@@ -1,0 +1,170 @@
+:host {
+    display: block;
+    height: 100vh;
+    width: 100%;
+    background: url('/assets/ngindia.jpg') no-repeat center center;
+    background-size: cover;
+    overflow: hidden;
+  }
+  .logo-banner {
+    width: 100%;
+    text-align: center;
+    padding-top: 10px;
+  
+    img {
+      height: 80px;
+      object-fit: contain;
+      transition: transform 0.3s ease-in-out;
+    }
+  
+    img:hover {
+      transform: scale(1.05);
+    }
+  }
+  
+  // Responsive behavior for smaller screens
+  @media (max-width: 768px) {
+    .logo-banner {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10000;
+      background: rgba(0, 0, 0, 1); // Optional: semi-transparent bg
+      padding: 10px 0;
+  
+      img {
+        height: 60px;
+      }
+    }
+  
+    .wheel-container {
+      margin-top: 30px; // Push wheel down so it's not covered by the logo
+    }
+  }
+  
+  
+  /* Main wheel container */
+  .wheel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+  
+  /* Wrapper holds SVG and button */
+  .wheel-wrapper {
+    position: relative;
+    width: 500px;
+    height: 500px;
+  }
+  
+  /* SVG wheel itself */
+  .wheel {
+    width: 100%;
+    height: 100%;
+    transform-origin: center;
+  }
+  
+  .spin-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    font-size: 14px;
+    background: radial-gradient(circle at center, #ffe066, #ff9f1c);
+    border: 4px solid #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    animation: pulse 2.5s infinite;
+  
+    .icon {
+      font-size: 22px;
+      margin-bottom: 2px;
+    }
+  
+    .text {
+      font-size: 13px;
+      font-weight: bold;
+    }
+  
+    &:hover {
+      transform: translate(-50%, -50%) scale(1.08);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+    }
+  
+    &:active {
+      transform: translate(-50%, -50%) scale(0.95);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    }
+  
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      animation: none;
+    }
+  
+    @media (min-width: 768px) {
+      width: 85px;
+      height: 85px;
+  
+      .icon {
+        font-size: 26px;
+      }
+  
+      .text {
+        font-size: 14px;
+      }
+    }
+  }
+  
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 159, 28, 0.6); }
+    50% { box-shadow: 0 0 12px 6px rgba(255, 159, 28, 0.3); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 159, 28, 0.6); }
+  }
+  
+  
+  
+  .spin-button:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+    background-color: #e64a19;
+  }
+  
+  .slice-text {
+    fill: #fff; // bright text
+    font-size: 14px;
+    font-weight: 600;
+    pointer-events: none;
+    user-select: none;
+    text-shadow: 1px 1px 2px #000;
+  }
+  
+  .slice-text.highlighted {
+    fill: #111;                     // Darker label
+    font-weight: 700;
+    font-size: 15px;
+    text-shadow: 1px 1px 4px #999; // Subtle contrast glow
+    letter-spacing: 0.5px;
+  }
+  
+  
+  /* Highlight selected slice */
+  .selected-slice {
+    stroke: #000;
+    stroke-width: 3;
+    filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.6));
+    transform-origin: center;
+    transition: all 0.3s ease;
+  }
+  
